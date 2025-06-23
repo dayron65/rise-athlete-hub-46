@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { 
   Camera, 
   FileText, 
-  Contact, 
+  Contract, 
   Trophy, 
   CreditCard, 
   Calendar,
@@ -140,7 +141,7 @@ export const StudentPanel = () => {
           <Card className="bg-gray-900 border-yellow-400/20">
             <CardHeader>
               <CardTitle className="text-white flex items-center">
-                <Contact className="mr-2 h-5 w-5 text-yellow-400" />
+                <Contract className="mr-2 h-5 w-5 text-yellow-400" />
                 Contrato
               </CardTitle>
             </CardHeader>
