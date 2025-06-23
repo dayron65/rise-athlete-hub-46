@@ -1,12 +1,61 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from "react";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { StudentPanel } from "@/components/StudentPanel";
+import { SportsProjects } from "@/components/SportsProjects";
+import { CulturalProjects } from "@/components/CulturalProjects";
+import { Classes } from "@/components/Classes";
+import { Events } from "@/components/Events";
+import { Store } from "@/components/Store";
+import { Membership } from "@/components/Membership";
+import { SupportAngel } from "@/components/SupportAngel";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
+  const [currentSection, setCurrentSection] = useState("home");
+
+  const renderSection = () => {
+    switch (currentSection) {
+      case "home":
+        return (
+          <>
+            <Hero />
+            <About />
+          </>
+        );
+      case "student":
+        return <StudentPanel />;
+      case "sports":
+        return <SportsProjects />;
+      case "cultural":
+        return <CulturalProjects />;
+      case "classes":
+        return <Classes />;
+      case "events":
+        return <Events />;
+      case "store":
+        return <Store />;
+      case "membership":
+        return <Membership />;
+      case "support":
+        return <SupportAngel />;
+      default:
+        return (
+          <>
+            <Hero />
+            <About />
+          </>
+        );
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-black">
+      <Header currentSection={currentSection} setCurrentSection={setCurrentSection} />
+      {renderSection()}
+      <Footer />
     </div>
   );
 };
