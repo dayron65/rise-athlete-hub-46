@@ -12,7 +12,9 @@ import {
   CreditCard, 
   Calendar,
   Dumbbell,
-  Upload
+  Upload,
+  Eye,
+  Award
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -39,15 +41,17 @@ export const StudentPanel = () => {
   const handleAnamneseClick = () => {
     toast({
       title: "Redirecionando...",
-      description: "Você será direcionado para a ficha de anamnese de EDF.",
+      description: "Você será direcionado para a ficha de anamnese de EDF. Após preenchimento, será enviada para gorilarise@gmail.com",
     });
+    // Aqui você implementaria o redirecionamento para o formulário de anamnese
   };
 
   const handleContractClick = () => {
     toast({
-      title: "Contrato",
-      description: "Abrindo contrato para assinatura digital.",
+      title: "Contrato Digital",
+      description: "Abrindo contrato para assinatura digital. Uma cópia será enviada para gorilarise@gmail.com",
     });
+    // Aqui você implementaria a abertura do contrato digital
   };
 
   const scheduleSlots = [
@@ -78,7 +82,7 @@ export const StudentPanel = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <Label className="text-gray-300 font-medium">Foto Inicial</Label>
+                <Label className="text-gray-300 font-medium">Foto Inicial do Treino</Label>
                 <div className="mt-3">
                   <Input
                     type="file"
@@ -94,7 +98,7 @@ export const StudentPanel = () => {
                 </div>
               </div>
               <div>
-                <Label className="text-gray-300 font-medium">Foto após 6 meses</Label>
+                <Label className="text-gray-300 font-medium">Foto após 6 meses de treino</Label>
                 <div className="mt-3">
                   <Input
                     type="file"
@@ -116,17 +120,17 @@ export const StudentPanel = () => {
             </CardContent>
           </Card>
 
-          {/* Anamnese */}
+          {/* Ficha de Anamnese */}
           <Card className="bg-gray-900/80 backdrop-blur-sm border-yellow-400/30 hover:border-yellow-400/60 transition-all duration-300 hover:transform hover:scale-105 shadow-xl">
             <CardHeader>
               <CardTitle className="text-white flex items-center text-xl">
                 <FileText className="mr-3 h-6 w-6 text-yellow-400" />
-                Ficha de Anamnese
+                Ficha de Anamnese EDF
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Preencha sua ficha de anamnese de Educação Física para personalizar seu treino de acordo com suas necessidades e objetivos.
+                Preencha sua ficha de anamnese de Educação Física. Após preenchimento, será enviada para gorilarise@gmail.com e adicionada ao seu painel.
               </p>
               <Button 
                 onClick={handleAnamneseClick}
@@ -137,7 +141,7 @@ export const StudentPanel = () => {
             </CardContent>
           </Card>
 
-          {/* Contrato */}
+          {/* Contrato Digital */}
           <Card className="bg-gray-900/80 backdrop-blur-sm border-yellow-400/30 hover:border-yellow-400/60 transition-all duration-300 hover:transform hover:scale-105 shadow-xl">
             <CardHeader>
               <CardTitle className="text-white flex items-center text-xl">
@@ -147,7 +151,7 @@ export const StudentPanel = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Acesse e assine digitalmente seu contrato de associação de forma rápida e segura.
+                Acesse e assine digitalmente seu contrato. Uma cópia será enviada para gorilarise@gmail.com após assinatura.
               </p>
               <Button 
                 onClick={handleContractClick}
@@ -168,7 +172,7 @@ export const StudentPanel = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Acompanhe sua evolução registrando seus recordes pessoais em diferentes modalidades.
+                Adicione e edite seus recordes pessoais em diferentes modalidades.
               </p>
               <div className="space-y-3 text-sm text-gray-400 mb-6 bg-black/30 p-4 rounded-lg">
                 <div className="flex items-center space-x-2">
@@ -189,6 +193,7 @@ export const StudentPanel = () => {
                 </div>
               </div>
               <Button className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 font-semibold py-3 transition-all duration-200">
+                <Award className="mr-2 h-5 w-5" />
                 Gerenciar Recordes
               </Button>
             </CardContent>
@@ -204,11 +209,16 @@ export const StudentPanel = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Seu cartão virtual exclusivo para descontos em lojas parceiras e benefícios especiais.
+                Gere seu cartão virtual com nome, número de associado e status para descontos exclusivos.
               </p>
               <div className="bg-gradient-to-r from-yellow-400/10 to-orange-400/10 p-4 rounded-lg mb-4 border border-yellow-400/20">
-                <p className="text-yellow-400 text-sm font-medium">Benefícios inclusos:</p>
-                <p className="text-gray-300 text-sm">• Descontos exclusivos • Acesso prioritário • Ofertas especiais</p>
+                <p className="text-yellow-400 text-sm font-medium mb-2">Benefícios inclusos:</p>
+                <div className="text-xs text-gray-300 space-y-1">
+                  <p>• 25% desconto na loja Gorila Rise</p>
+                  <p>• Acesso prioritário a eventos</p>
+                  <p>• Descontos em lojas parceiras</p>
+                  <p>• Descontos na Gorilla Kitchen</p>
+                </div>
               </div>
               <Button className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 font-semibold py-3 transition-all duration-200">
                 Gerar Cartão Virtual
@@ -216,17 +226,17 @@ export const StudentPanel = () => {
             </CardContent>
           </Card>
 
-          {/* Agendamento de Horários */}
+          {/* Confirmar Horário */}
           <Card className="bg-gray-900/80 backdrop-blur-sm border-yellow-400/30 hover:border-yellow-400/60 transition-all duration-300 hover:transform hover:scale-105 shadow-xl">
             <CardHeader>
               <CardTitle className="text-white flex items-center text-xl">
                 <Calendar className="mr-3 h-6 w-6 text-yellow-400" />
-                Confirmar Horário
+                Confirmar Horário de Aula
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Confirme seu horário de treino preferido (6 vagas disponíveis por modalidade)
+                Confirme seu horário de treino (6 vagas por modalidade)
               </p>
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {scheduleSlots.map((time) => (
@@ -248,7 +258,7 @@ export const StudentPanel = () => {
             </CardContent>
           </Card>
 
-          {/* Ficha de Treino */}
+          {/* Visualizar Ficha de Treino */}
           <Card className="bg-gray-900/80 backdrop-blur-sm border-yellow-400/30 hover:border-yellow-400/60 transition-all duration-300 hover:transform hover:scale-105 shadow-xl lg:col-span-2 xl:col-span-1">
             <CardHeader>
               <CardTitle className="text-white flex items-center text-xl">
@@ -258,7 +268,7 @@ export const StudentPanel = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Acesse sua ficha de treino personalizada com exercícios detalhados e vídeos explicativos.
+                Visualize sua ficha de treino personalizada com exercícios e vídeos explicativos.
               </p>
               <div className="bg-gradient-to-r from-blue-400/10 to-purple-400/10 p-4 rounded-lg mb-6 border border-yellow-400/20">
                 <p className="text-yellow-400 text-sm font-medium mb-2">Recursos disponíveis:</p>
@@ -270,6 +280,7 @@ export const StudentPanel = () => {
                 </div>
               </div>
               <Button className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 font-semibold py-3 transition-all duration-200">
+                <Eye className="mr-2 h-5 w-5" />
                 Visualizar Ficha
               </Button>
             </CardContent>

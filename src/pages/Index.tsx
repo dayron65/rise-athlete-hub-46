@@ -11,6 +11,7 @@ import { Events } from "@/components/Events";
 import { Store } from "@/components/Store";
 import { Membership } from "@/components/Membership";
 import { SupportAngel } from "@/components/SupportAngel";
+import { Login } from "@/components/Login";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -41,6 +42,8 @@ const Index = () => {
         return <Membership />;
       case "support":
         return <SupportAngel />;
+      case "login":
+        return <Login />;
       default:
         return (
           <>

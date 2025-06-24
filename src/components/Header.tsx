@@ -39,7 +39,7 @@ export const Header = ({ currentSection, setCurrentSection }: HeaderProps) => {
                 GORILA RISE
               </h1>
               <p className="text-white text-xs font-medium opacity-90">
-                MANTENHA-SE FORTE E ALCANCE SEU OBJETIVO
+                ASSOCIAÇÃO ESPORTIVA E CULTURAL
               </p>
             </div>
           </div>
@@ -74,12 +74,23 @@ export const Header = ({ currentSection, setCurrentSection }: HeaderProps) => {
               </div>
             </Button>
 
-            <Button variant="outline" size="sm" className="border-yellow-400/60 text-yellow-400 hover:bg-yellow-400 hover:text-black font-medium transition-all duration-200 hidden sm:flex">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => setCurrentSection("login")}
+              className={`border-yellow-400/60 text-yellow-400 hover:bg-yellow-400 hover:text-black font-medium transition-all duration-200 hidden sm:flex ${
+                currentSection === "login" ? "bg-yellow-400 text-black" : ""
+              }`}
+            >
               <User className="h-4 w-4 mr-2" />
               Login
             </Button>
             
-            <Button size="sm" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 font-semibold shadow-md hover:shadow-lg transition-all duration-200">
+            <Button 
+              size="sm" 
+              onClick={() => setCurrentSection("store")}
+              className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+            >
               <ShoppingCart className="h-4 w-4 mr-2" />
               Loja
             </Button>
@@ -117,7 +128,15 @@ export const Header = ({ currentSection, setCurrentSection }: HeaderProps) => {
               
               {/* Mobile Login Button */}
               <div className="pt-4 border-t border-gray-800 mt-4">
-                <Button variant="outline" size="sm" className="w-full border-yellow-400/60 text-yellow-400 hover:bg-yellow-400 hover:text-black font-medium">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => {
+                    setCurrentSection("login");
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full border-yellow-400/60 text-yellow-400 hover:bg-yellow-400 hover:text-black font-medium"
+                >
                   <User className="h-4 w-4 mr-2" />
                   Login
                 </Button>
